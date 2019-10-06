@@ -5,6 +5,8 @@ const ObjectId = require("mongodb").ObjectID;
 const CONNECTION_URL = "mongodb+srv://nishs9:mas2019@mas-cluster-whhsb.mongodb.net/admin?retryWrites=true&w=majority"
 const DATABASE_NAME = "mas-database";
 
+const port = process.env.Port || 8080;
+
 let app = express();
 
 let apiRoutes = require("./api-routes")
@@ -13,7 +15,7 @@ app.use('/api', apiRoutes);
 app.use(BodyParser.json());
 app.use(BodyParser.urlencoded({ extended: true }));
 
-var port = process.env.Port || 8080;
+
 
 //Test endpoint
 app.get('/', (req, res) => res.send('Homescreen'));
